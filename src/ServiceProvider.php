@@ -9,30 +9,24 @@ class ServiceProvider extends IlluminateProvider
     public function register(): void
     {
         $this->publishes([
-            $this->path('Migrations') => database_path('migrations/pagebuilder')
-        ], 'pagebuilder-migrations');
+            $this->root('database/migrations') => database_path('migrations/grapebuilder')
+        ], 'grapebuilder-migrations');
     }
 
     public function boot(): void
     {
-        $this->loadMigrationsFrom($this->path('database/migrations', true));
+        $this->loadMigrationsFrom(
+            $this->root('database/migrations')
+        );
     }
 
-    protected function path(string $path, bool $root = false): string
+    private function src(string $path): string
     {
-        if (!$root)
-            return $this->src() . "/{$path}";
-        else
-            return $this->root() . "/{$path}";
+        return __DIR__ . "/{$path}";
     }
 
-    private function src(): string
+    private function root(string $path): string
     {
-        return __DIR__;
-    }
-
-    private function root(): string
-    {
-        return dirname($this->src());
+        return dirname(__DIR__) . "/{$path}";
     }
 }
