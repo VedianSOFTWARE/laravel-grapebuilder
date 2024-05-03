@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('layouts', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', LayoutEnum::toArray());
+            $table->enum('type', LayoutEnum::toArray())->index();
             $table->boolean('is_active');
             $table->json('content');
             $table->foreignIdFor(User::class, 'created_by')->constrained('users');
             $table->foreignIdFor(User::class, 'updated_by')->constrained('users');
             $table->timestamps();
-            $table->unique(['type', 'is_active']);
+            // $table->unique(['type', 'is_active']);
         });
     }
 
