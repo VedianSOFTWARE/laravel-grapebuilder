@@ -6,6 +6,13 @@
             "Vediansoftware\\Laravel\\Grapebuilder\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vediansoftware\\Grapebuilder\\GrapeBuilderServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "role": "Engineer",
@@ -15,7 +22,9 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^8.1"
+        "php": "^8.2",
+        "laravel/framework": "^11.0",
+        "laravel/tinker": "^2.9"
     },
     "prefer-stable": true,
     "config": {
