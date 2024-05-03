@@ -3,13 +3,13 @@
     "description": "A CMS Package for Laravel to build pages using Grape and TailwindCSS",
     "autoload": {
         "psr-4": {
-            "Vediansoftware\\Laravel\\Grapebuilder\\": "src/"
+            "Vediansoftware\\Grapebuilder\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vediansoftware\\Grapebuilder\\GrapeBuilderServiceProvider"
+                "Vediansoftware\\Grapebuilder\\ServiceProvider"
             ]
         }
     },
