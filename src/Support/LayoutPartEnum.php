@@ -2,11 +2,10 @@
 
 namespace Vediansoftware\Grapebuilder\Support;
 
-enum LayoutEnum: string
+enum LayoutPartEnum: string
 {
     case HEADER = 'header';
     case FOOTER = 'footer';
-    case MENU = 'menu';
 
     public static function toArray()
     {

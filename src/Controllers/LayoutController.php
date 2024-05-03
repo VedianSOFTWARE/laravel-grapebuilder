@@ -2,9 +2,12 @@
 
 namespace Vediansoftware\Grapebuilder\Controllers;
 
+use Vediansoftware\Grapebuilder\Classes\LayoutPart;
+use Vediansoftware\Grapebuilder\Contracts\LayoutPartContract;
 use Vediansoftware\Grapebuilder\Requests\StoreLayoutRequest;
 use Vediansoftware\Grapebuilder\Requests\UpdateLayoutRequest;
 use Vediansoftware\Grapebuilder\Models\Layout;
+use Vediansoftware\Grapebuilder\Support\LayoutPartEnum;
 
 class LayoutController extends Controller
 {
@@ -19,9 +22,13 @@ class LayoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $type)
     {
-        //
+        if(!LayoutPartEnum::tryFrom($type)) {
+            return 'noob page does not exist';
+        }
+
+        return 'layout/part/' . $type;
     }
 
     /**
