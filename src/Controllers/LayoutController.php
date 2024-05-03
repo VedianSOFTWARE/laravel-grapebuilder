@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Vediansoftware\Grapebuilder\Controllers;
 
-use App\Http\Requests\StoreLayoutRequest;
-use App\Http\Requests\UpdateLayoutRequest;
-use App\Models\Layout;
+use Vediansoftware\Grapebuilder\Requests\StoreLayoutRequest;
+use Vediansoftware\Grapebuilder\Requests\UpdateLayoutRequest;
+use Vediansoftware\Grapebuilder\Models\Layout;
 
 class LayoutController extends Controller
 {

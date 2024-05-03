@@ -2,7 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Schema;
+use Vediansoftware\Grapebuilder\Support\LayoutEnum;
 
 return new class extends Migration
 {
@@ -13,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('layouts', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', LayoutEnum::toArray());
+            $table->boolean('is_active');
+            $table->json('content');
+            $table->foreignIdFor(User::class, 'created_by')->constrained('users');
+            $table->foreignIdFor(User::class, 'updated_by')->constrained('users');
             $table->timestamps();
+            $table->unique(['type', 'is_active']);
         });
     }
 
