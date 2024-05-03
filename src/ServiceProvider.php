@@ -18,6 +18,10 @@ class ServiceProvider extends IlluminateProvider
         $this->loadMigrationsFrom(
             $this->root('database/migrations')
         );
+        
+        $this->loadRoutesFrom(
+            $this->root('route/web.php')
+        );
     }
 
     private function src(string $path): string
