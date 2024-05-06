@@ -2,9 +2,8 @@
 
 namespace Vedian\Grapebuilder\Controllers;
 
-use Vedian\Grapebuilder\Requests\StoreLayoutRequest;
-use Vedian\Grapebuilder\Requests\UpdateLayoutRequest;
-use Vedian\Grapebuilder\Support\Facades\Path;
+use Illuminate\Http\Client\Request;
+use Vedian\Grapebuilder\Models\Layout;
 use Vedian\Grapebuilder\Support\Facades\Templates;
 
 class LayoutController extends Controller
@@ -26,13 +25,13 @@ class LayoutController extends Controller
             return 'Layout part does not exist';
         }
 
-        return Templates::view('layout.create');
+        return Templates::view("layout.create");
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLayoutRequest $request, string $type)
+    public function store(Request $request, string $type)
     {
         //
     }
@@ -57,7 +56,7 @@ class LayoutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLayoutRequest $request, Layout $layout)
+    public function update(Request $request, Layout $layout)
     {
         //
     }

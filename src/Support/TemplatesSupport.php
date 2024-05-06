@@ -6,8 +6,6 @@ use Vedian\Grapebuilder\Support\Enum\TemplatesEnum;
 
 class TemplatesSupport
 {
-
-    
     public function exists(string $type)
     {
         // TODO: Make sure this templates enum will become a support package like this support file
