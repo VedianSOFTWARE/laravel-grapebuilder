@@ -1,2 +1,2 @@
 # laravel-grapebuilder
-Laravel GrapeJS and Tailwind pagebuilder/cms
+Laravel GrapeJS and Tailwind Grapebuilder/cms

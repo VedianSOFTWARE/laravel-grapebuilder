@@ -1,13 +1,11 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder\Controllers;
+namespace Vedian\Grapebuilder\Controllers;
 
-use Vediansoftware\Grapebuilder\Classes\LayoutPart;
-use Vediansoftware\Grapebuilder\Contracts\LayoutPartContract;
-use Vediansoftware\Grapebuilder\Requests\StoreLayoutRequest;
-use Vediansoftware\Grapebuilder\Requests\UpdateLayoutRequest;
-use Vediansoftware\Grapebuilder\Models\Layout;
-use Vediansoftware\Grapebuilder\Support\LayoutPartEnum;
+use Vedian\Grapebuilder\Requests\StoreLayoutRequest;
+use Vedian\Grapebuilder\Requests\UpdateLayoutRequest;
+use Vedian\Grapebuilder\Support\Facades\Path;
+use Vedian\Grapebuilder\Support\Facades\Templates;
 
 class LayoutController extends Controller
 {
@@ -24,17 +22,17 @@ class LayoutController extends Controller
      */
     public function create(string $type)
     {
-        if(!LayoutPartEnum::tryFrom($type)) {
-            return 'noob page does not exist';
+        if (!Templates::exists($type)) {
+            return 'Layout part does not exist';
         }
 
-        return 'layout/part/' . $type;
+        return Templates::view('layout.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLayoutRequest $request)
+    public function store(StoreLayoutRequest $request, string $type)
     {
         //
     }
@@ -44,6 +42,7 @@ class LayoutController extends Controller
      */
     public function show(Layout $layout)
     {
+        dd($layout);
         //
     }
 

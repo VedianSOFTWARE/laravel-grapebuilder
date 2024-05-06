@@ -1,8 +1,8 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder\Support;
+namespace Vedian\Grapebuilder\Support\Enum;
 
-enum LayoutPartEnum: string
+enum TemplatesEnum: string
 {
     case HEADER = 'header';
     case FOOTER = 'footer';

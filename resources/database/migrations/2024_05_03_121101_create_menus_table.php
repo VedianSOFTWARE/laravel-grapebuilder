@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Vediansoftware\Grapebuilder\Models\Layout;
-use Vediansoftware\Grapebuilder\Support\LayoutPartEnum;
+use Vedian\Grapebuilder\Models\Layout;
+use Vedian\Grapebuilder\Support\LayoutPartEnum;
 
 return new class extends Migration
 {

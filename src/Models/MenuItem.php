@@ -1,6 +1,6 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder\Models;
+namespace Vedian\Grapebuilder\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
