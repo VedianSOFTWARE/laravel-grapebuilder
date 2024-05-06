@@ -1,10 +1,11 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder\Controllers;
+namespace Vedian\Grapebuilder\Controllers;
 
-use Vediansoftware\Grapebuilder\Requests\StoreLayoutRequest;
-use Vediansoftware\Grapebuilder\Requests\UpdateLayoutRequest;
-use Vediansoftware\Grapebuilder\Models\Layout;
+use Vedian\Grapebuilder\Requests\StoreLayoutRequest;
+use Vedian\Grapebuilder\Requests\UpdateLayoutRequest;
+use Vedian\Grapebuilder\Support\Facades\Path;
+use Vedian\Grapebuilder\Support\Facades\Templates;
 
 class LayoutController extends Controller
 {
@@ -19,15 +20,19 @@ class LayoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $type)
     {
-        //
+        if (!Templates::exists($type)) {
+            return 'Layout part does not exist';
+        }
+
+        return Templates::view('layout.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLayoutRequest $request)
+    public function store(StoreLayoutRequest $request, string $type)
     {
         //
     }
@@ -37,6 +42,7 @@ class LayoutController extends Controller
      */
     public function show(Layout $layout)
     {
+        dd($layout);
         //
     }
 

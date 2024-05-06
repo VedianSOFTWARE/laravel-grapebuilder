@@ -3,9 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Vediansoftware\Grapebuilder\Models\Menu;
-use Vediansoftware\Grapebuilder\Models\Page;
-use Vediansoftware\Grapebuilder\Support\LayoutEnum;
+use Vedian\Grapebuilder\Models\Menu;
+use Vedian\Grapebuilder\Models\Page;
+use Vedian\Grapebuilder\Support\LayoutPartEnum;
 
 return new class extends Migration
 {

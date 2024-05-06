@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Vediansoftware\Grapebuilder\Models\Layout;
-use Vediansoftware\Grapebuilder\Support\LayoutEnum;
+use Vedian\Grapebuilder\Models\Layout;
+use Vedian\Grapebuilder\Support\LayoutPartEnum;
 
 return new class extends Migration
 {
@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Layout::class)->unique()->constrained();
-            // $table->enum('layout', LayoutEnum::toArray());
+            // $table->enum('layout', LayoutPartEnum::toArray());
             // $table->foreign('layout')->references('type')->on('layouts');
             // $table->unique('layout', 'layout_id');
             $table->timestamps();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder\Controllers;
+namespace Vedian\Grapebuilder\Controllers;
 
 abstract class Controller
 {

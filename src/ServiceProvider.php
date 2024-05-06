@@ -1,36 +1,53 @@
 <?php
 
-namespace Vediansoftware\Grapebuilder;
+namespace Vedian\Grapebuilder;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as IlluminateProvider;
+use Vedian\Grapebuilder\Support\Facades\Path;
+use Vedian\Grapebuilder\Support\PathSupport;
+use Vedian\Grapebuilder\Support\TemplatesSupport;
+use Vedian\Grapebuilder\Support\Traits\VedianProvider;
 
 class ServiceProvider extends IlluminateProvider
 {
+    use VedianProvider;
+
     public function register(): void
     {
-        $this->publishes([
-            $this->root('database/migrations') => database_path('migrations/grapebuilder')
-        ], 'grapebuilder-migrations');
     }
 
     public function boot(): void
     {
-        $this->loadMigrationsFrom(
-            $this->root('database/migrations')
-        );
-        
-        $this->loadRoutesFrom(
-            $this->root('route/web.php')
-        );
+        $this->facades();
+        $this->bootable();
+        $this->loading();
+        $this->publishing();
     }
 
-    private function src(string $path): string
+    protected function bootable()
     {
-        return __DIR__ . "/{$path}";
+        Blade::componentNamespace('Grapebuilder\\View', 'Grapebuilder');
     }
 
-    private function root(string $path): string
+    protected function loading()
     {
-        return dirname(__DIR__) . "/{$path}";
+        $this->loadMigrationsFrom(Path::migrations());
+        $this->loadViewsFrom(Path::views(), 'Grapebuilder');
+        $this->loadRoutesFrom(Path::routes('web'));
+    }
+
+    protected function publishing()
+    {
+        $this->publishes([
+            Path::migrations() => database_path('migrations'),
+            Path::views() => resource_path('views/vendor/Grapebuilder'),
+        ], 'grapebuilder-publish');
+    }
+
+    protected function facades()
+    {
+        $this->bindFacade('path-support', PathSupport::class);
+        $this->bindFacade('templates-support', TemplatesSupport::class);
     }
 }
