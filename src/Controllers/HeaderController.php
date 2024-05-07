@@ -21,11 +21,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return Template::make('header', [
-            'test' => '123'
-        ])
-            ->create()
-            ->render();
+        return Template::header()->view('create');
     }
 
     /**

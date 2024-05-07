@@ -6,38 +6,28 @@ use Vedian\Grapebuilder\Support\Enum\TemplatesEnum;
 
 class TemplateSupport
 {
-    protected string $view;
-    protected string $part;
-    protected array $data = [];
-    protected array $mergeData = [];
-
     // TODO: Add config file for Grapebuilder
-    protected string $bladeNamespace = 'Grapebuilder';
+    protected string $bladeNamespace = 'Grapebuilder::template';
 
-    public function exists(string $type)
-    {
-        // TODO: Make sure this templates enum will become a support package like this support file
-        // TODO: See $this->view()
-        return TemplatesEnum::tryFrom($type);
-    }
+    protected string $part;
 
-    public function render()
+    public function __call($name, $arguments)
     {
-        // TODO: Make sure this templatesupport file will become a new package
-        return view("{$this->bladeNamespace}::template.{$this->view}", $this->data, $this->mergeData);
-    }
+        switch ($name) {
+            case 'footer':
+            case 'header':
+            case 'section':
+                $this->part = $name;
+                break;
+            case 'exists':
+                return TemplatesEnum::tryFrom($name);
+        };
 
-    public function create()
-    {
-        $this->view = "{$this->part}.create";
         return $this;
     }
 
-    public function make(string $part, array $data = [], array $mergeData = [])
+    public function view(string $view, array $data = [], array $mergeData = [])
     {
-        $this->part = $part;
-        $this->data = $data;
-        $this->mergeData = $mergeData;
-        return $this;
+        return view("{$this->bladeNamespace}.{$this->part}.{$view}", $data, $mergeData);
     }
 }
