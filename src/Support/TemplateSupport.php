@@ -23,6 +23,8 @@ class TemplateSupport
                 return TemplatesEnum::tryFrom($name);
         };
 
+        dump($this);
+
         return $this;
     }
 

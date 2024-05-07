@@ -19,19 +19,15 @@ class LayoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $type)
+    public function create($type)
     {
-        if (!Template::exists($type)) {
-            return 'Layout part does not exist';
-        }
-
-        return Template::view("layout.create");
+        return Template::{$type}()->view('create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, string $type)
+    public function store(Request $request)
     {
         //
     }
