@@ -22,9 +22,7 @@ class TemplateSupport
             case 'exists':
                 return TemplateEnum::tryFrom($name);
         };
-
-        dump($this);
-
+        
         return $this;
     }
 
