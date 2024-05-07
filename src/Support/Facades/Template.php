@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Facade;
  * @method models(string $path = null)
  * 
  * 
- * @see \Vedian\Grapebuilder\Support\TemplatingSupport
+ * @see \Vedian\Grapebuilder\Support\TemplateSupport
  */
-class Templates extends Facade
+class Template extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -23,6 +23,6 @@ class Templates extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'templates-support';
+        return 'template-support';
     }
 }

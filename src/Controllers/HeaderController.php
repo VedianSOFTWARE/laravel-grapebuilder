@@ -6,7 +6,7 @@ use Illuminate\Http\Client\Request;
 use Vedian\Grapebuilder\Models\Layout;
 use Vedian\Grapebuilder\Support\Facades\Template;
 
-class LayoutController extends Controller
+class HeaderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +19,19 @@ class LayoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(string $type)
+    public function create()
     {
-        if (!Template::exists($type)) {
-            return 'Layout part does not exist';
-        }
-
-        return Template::view("layout.create");
+        return Template::make('header', [
+            'test' => '123'
+        ])
+            ->create()
+            ->render();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, string $type)
+    public function store(Request $request)
     {
         //
     }

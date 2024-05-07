@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider as IlluminateProvider;
 use Vedian\Grapebuilder\Support\Facades\Path;
 use Vedian\Grapebuilder\Support\PathSupport;
-use Vedian\Grapebuilder\Support\TemplatesSupport;
+use Vedian\Grapebuilder\Support\TemplateSupport;
 use Vedian\Grapebuilder\Support\Traits\VedianProvider;
 
 class ServiceProvider extends IlluminateProvider
@@ -48,6 +48,6 @@ class ServiceProvider extends IlluminateProvider
     protected function facades()
     {
         $this->bindFacade('path-support', PathSupport::class);
-        $this->bindFacade('templates-support', TemplatesSupport::class);
+        $this->bindFacade('template-support', TemplateSupport::class);
     }
 }
