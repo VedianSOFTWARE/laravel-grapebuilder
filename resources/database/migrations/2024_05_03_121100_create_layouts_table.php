@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Schema;
-use Vedian\Grapebuilder\Support\LayoutPartEnum;
+use Vedian\Grapebuilder\Support\Enum\TemplateEnum;
 
 return new class extends Migration
 {
@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('layouts', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', LayoutPartEnum::toArray())->index();
+            $table->enum('type', TemplateEnum::toArray())->index();
             $table->boolean('is_active');
             $table->json('content');
             $table->foreignIdFor(User::class, 'created_by')->constrained('users');

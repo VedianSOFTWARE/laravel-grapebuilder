@@ -2,10 +2,11 @@
 
 namespace Vedian\Grapebuilder\Support\Enum;
 
-enum TemplatesEnum: string
+enum TemplateEnum: string
 {
     case HEADER = 'header';
     case FOOTER = 'footer';
+    case SECTION = 'section';
 
     public static function toArray()
     {

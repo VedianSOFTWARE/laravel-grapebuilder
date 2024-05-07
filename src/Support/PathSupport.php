@@ -75,7 +75,7 @@ class PathSupport
      */
     public function migrations()
     {
-        return Path::root("migrations");
+        return Path::resources("database/migrations");
     }
 
     /**

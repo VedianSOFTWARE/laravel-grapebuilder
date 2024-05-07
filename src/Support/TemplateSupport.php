@@ -2,7 +2,7 @@
 
 namespace Vedian\Grapebuilder\Support;
 
-use Vedian\Grapebuilder\Support\Enum\TemplatesEnum;
+use Vedian\Grapebuilder\Support\Enum\TemplateEnum;
 
 class TemplateSupport
 {
@@ -20,7 +20,7 @@ class TemplateSupport
                 $this->part = $name;
                 break;
             case 'exists':
-                return TemplatesEnum::tryFrom($name);
+                return TemplateEnum::tryFrom($name);
         };
 
         dump($this);

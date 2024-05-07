@@ -10,8 +10,5 @@ use Vedian\Grapebuilder\Controllers\LayoutController;
 Route::group([
     'prefix' => 'layout'
 ], function () {
-    // Route::get('{type}/create', [LayoutController::class, 'create']);
-    // Route::get('show/{layout}', [LayoutController::class, 'show']);
-    // Route::resource('header', HeaderController::class);
     Route::resource('{type}', LayoutController::class);
 });
